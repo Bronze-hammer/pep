@@ -36,7 +36,7 @@
         -->
         <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
         <table
-                tableName="cliff_user" domainObjectName="User"
+                tableName="pep_user" domainObjectName="User"
                 enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"
         />
     </context>

@@ -6,6 +6,8 @@ import com.koala.pep.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements IUserService {
 
@@ -15,6 +17,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User queryByPk(String pk_user) {
         return userMapper.getUserByPk(pk_user);
+    }
+
+    @Override
+    public List<User> queryAll() {
+        return userMapper.getAllUsers();
     }
 
 }
