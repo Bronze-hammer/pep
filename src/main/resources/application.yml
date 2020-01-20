@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username: root
+    password: xu123456
+    url: jdbc:mysql://127.0.0.1:3306/cliff?useUnicode=true&serverTimezone=UTC&characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.koala.pep.model
