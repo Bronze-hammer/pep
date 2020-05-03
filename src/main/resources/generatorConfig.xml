@@ -10,34 +10,39 @@
         <!-- 数据库链接URL、用户名、密码 -->
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/cliff?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useSSL=false"
-                userId="root" password="xu123456">
+                connectionURL="jdbc:mysql://localhost:3306/koala_pep?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useSSL=false"
+                userId="root"
+                password="xu123456">
         </jdbcConnection>
 
+        <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
 
         <!-- 生成模型的包名和位置 -->
-        <javaModelGenerator targetPackage="com.koala.pep.model" targetProject="D:\IDEAProjects\pep\src\main\java">
-            <property name="enableSubPackages" value="true" />
-            <property name="trimStrings" value="true" />
+        <javaModelGenerator targetPackage="com.koala.pep.model" targetProject="./src/main/java">
+            <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 是否对model添加 构造函数 -->
+            <property name="constructorBased" value="true"/>
+            <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
+            <property name="trimStrings" value="true"/>
+            <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+            <property name="immutable" value="false"/>
         </javaModelGenerator>
 
         <!-- 生成的映射文件包名和位置   -->
-        <sqlMapGenerator targetPackage="mapping" targetProject="D:\IDEAProjects\pep\src\main\resources">
-            <property name="enableSubPackages" value="true" />
+        <sqlMapGenerator targetPackage="mapping" targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
 
-        <!-- 生成DAO的包名和位置
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.cliff.dao" targetProject="pep\src\main\java">
-            <property name="enableSubPackages" value="true" />
+        <!-- 生成DAO的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.koala.pep.mapper" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
-        -->
+
         <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-        <table
-                tableName="pep_user" domainObjectName="User"
-                enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"
-        />
+        <table tableName="account" domainObjectName="Account" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
     </context>
 </generatorConfiguration>
